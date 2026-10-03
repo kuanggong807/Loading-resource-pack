@@ -1,29 +1,19 @@
+Mod 简介
+这是一个服务器材质包遥控模组：装了它的服务器，管理员可以用一条指令，帮指定玩家自动加载或卸载玩家自己电脑 resourcepacks 文件夹里的材质包。不需要玩家自己进设置里翻菜单，也不需要把材质包打包上传到服务器。适合做活动换肤、进入特定区域切换画面风格、或者给不同玩家群体发不同材质包。
+前提条件
+服务器和玩家双方都要安装本模组。只装服务端没有效果。
+想被加载的材质包必须事先放在玩家自己的 resourcepacks 文件夹里（就是平时在「选项 → 资源包」里能看到、能手动启用的那种材质包，.zip 文件或文件夹都可以）。
+服务器运行目录下也要有同名的 resourcepacks 文件夹；服务器会检查这个名字是否存在，找不到会报错。服务器只负责“查名字、传指令”，真正的材质包内容始终在玩家本机。
+指令一览
+所有指令都需要管理员权限（权限等级 2，即 OP），也可以在命令方块里执行。
 
-Installation information
-=======
+指令	作用
+/lrp	查看可用的材质包指令和用法提示
+/lrp resourcepack	查看 set / remove 的具体用法
+/lrp resourcepack <目标> set <材质包名>	给选中的玩家加载指定材质包
+/lrp resourcepack <目标> remove	卸载该目标此前通过本指令加载的全部材质包
+/lrp resourcepack <目标> remove <材质包名>	只卸载指定的那一个材质包
+说明：
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
-
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
-
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
-
-Mapping Names:
-============
-The MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
-
-MDG Legacy:
-==========
-This template uses [ModDevGradle Legacy](https://github.com/neoforged/ModDevGradle). Documentation can be found [here](https://github.com/neoforged/ModDevGradle/blob/main/LEGACY.md).
-
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+<目标> 是玩家选择器，例如 @a（所有玩家）、@p（最近的玩家）、玩家名。
+<材质包名> 填 resourcepacks 文件夹里的 .zip 文件名或文件夹名，不要带路径（例如 my_pack 或 my_pack.zip）。
